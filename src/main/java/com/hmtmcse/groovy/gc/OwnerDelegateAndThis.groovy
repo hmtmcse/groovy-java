@@ -1,12 +1,14 @@
 package com.hmtmcse.groovy.gc
 
+import com.hmtmcse.groovy.gc.delegate.Person
+
 class OwnerDelegateAndThis {
 
 
     public static void main(String[] args) {
 
 
-        def p = new PersonDelegateTest(name: 'Igor')
+        def p = new Person(name: 'Igor')
         def cl = { name.toUpperCase() }
         cl.resolveStrategy = Closure.DELEGATE_ONLY
         cl.delegate = p
