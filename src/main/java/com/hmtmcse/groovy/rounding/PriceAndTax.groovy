@@ -19,6 +19,7 @@ class PriceAndTax {
         Table table = new Table();
         table.addHeader("Price", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
         table.addHeader("Quantity", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
+        table.addHeader("Precision", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
         table.addHeader("Actual", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
         table.addHeader("HALF_UP", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
         table.addHeader("HALF_EVEN", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
@@ -43,6 +44,7 @@ class PriceAndTax {
         list.each {Map m ->
             rowData = table.setRowData("" + m.price)
             rowData.add( "" +  m.quentity)
+            rowData.add( "" +  precision)
 
             tmp = m.price *  m.quentity
             rowData.add( "" + tmp)
