@@ -24,10 +24,11 @@ class RoundingExample {
         ]
 
 
-        println("Rounding Mode " + roundingMode.toString())
+        println("Rounding Mode ROUND_HALF_UP")
         dataSet.each {Double data ->
             valueOf = BigDecimal.valueOf(data).setScale(precision, BigDecimal.ROUND_HALF_UP)
-            System.out.println(valueOf + " " + data)
+            bigDecimal = new BigDecimal(data).setScale(precision, BigDecimal.ROUND_HALF_UP)
+            System.out.println(bigDecimal.doubleValue() + " " + valueOf + " " + data)
         }
 
         roundingMode = RoundingMode.HALF_UP
