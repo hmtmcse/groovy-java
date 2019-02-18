@@ -31,6 +31,22 @@ class RoundingExample {
             System.out.println(bigDecimal.doubleValue() + " " + valueOf + " " + data)
         }
 
+        roundingMode = RoundingMode.UP
+        println("Rounding Mode " + roundingMode.toString())
+        dataSet.each {Double data ->
+            bigDecimal = new BigDecimal(data).setScale(precision, roundingMode)
+            valueOf = BigDecimal.valueOf(data).setScale(precision, roundingMode)
+            System.out.println(bigDecimal.doubleValue() + " " + valueOf + " " + data)
+        }
+
+        roundingMode = RoundingMode.DOWN
+        println("Rounding Mode " + roundingMode.toString())
+        dataSet.each {Double data ->
+            bigDecimal = new BigDecimal(data).setScale(precision, roundingMode)
+            valueOf = BigDecimal.valueOf(data).setScale(precision, roundingMode)
+            System.out.println(bigDecimal.doubleValue() + " " + valueOf + " " + data)
+        }
+
         roundingMode = RoundingMode.HALF_UP
         println("Rounding Mode " + roundingMode.toString())
         dataSet.each {Double data ->
