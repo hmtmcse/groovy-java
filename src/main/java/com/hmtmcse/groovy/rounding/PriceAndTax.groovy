@@ -26,10 +26,10 @@ class PriceAndTax {
         table.addHeader("DOWN", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
 
         def list = [
-                [price: 2.485, quentity: 5],
-                [price: 2.485, quentity: 1],
-                [price: 2.485, quentity: 7],
-                [price: 2.485, quentity: 3],
+                [price: 2.7048, quentity: 5],
+                [price: 2.7048, quentity: 1],
+                [price: 2.7048, quentity: 7],
+                [price: 2.7048, quentity: 3],
                 [price: 2.485, quentity: 4],
                 [price: 1.496, quentity: 2],
                 [price: 2.397, quentity: 5],
