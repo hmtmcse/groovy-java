@@ -11,7 +11,7 @@ class PriceAndTax {
 
 
     public static BigDecimal round(Double price, Integer precision, RoundingMode roundingMode){
-        return new BigDecimal(price).setScale(precision, roundingMode)
+        return BigDecimal.valueOf(price).setScale(precision, roundingMode)
     }
 
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ class PriceAndTax {
         ]
 
         Integer precision = 2
-        BigDecimal tmp
+        BigDecimal tmp, bigDecimal
 
 
         TableRowData rowData
@@ -47,17 +47,21 @@ class PriceAndTax {
             tmp = m.price *  m.quentity
             rowData.add( "" + tmp)
 
-            tmp = m.quentity * round(m.price, precision, RoundingMode.HALF_UP)
-            rowData.add( "" + tmp)
+            bigDecimal = round(m.price, precision, RoundingMode.HALF_UP)
+            tmp = m.quentity * bigDecimal
+            rowData.add( "(" + bigDecimal + ") " + tmp)
 
-            tmp = m.quentity * round(m.price, precision, RoundingMode.HALF_EVEN)
-            rowData.add( "" + tmp)
+            bigDecimal = round(m.price, precision, RoundingMode.HALF_EVEN)
+            tmp = m.quentity * bigDecimal
+            rowData.add( "(" + bigDecimal + ") " + tmp)
 
-            tmp = m.quentity * round(m.price, precision, RoundingMode.UP)
-            rowData.add( "" + tmp)
+            bigDecimal = round(m.price, precision, RoundingMode.UP)
+            tmp = m.quentity * bigDecimal
+            rowData.add( "(" + bigDecimal + ") " + tmp)
 
-            tmp = m.quentity * round(m.price, precision, RoundingMode.DOWN)
-            rowData.add( "" + tmp)
+            bigDecimal = round(m.price, precision, RoundingMode.DOWN)
+            tmp = m.quentity * bigDecimal
+            rowData.add( "(" + bigDecimal + ") " + tmp)
 
             table.addRow(rowData)
         }
