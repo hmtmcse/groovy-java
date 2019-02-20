@@ -14,7 +14,8 @@ class PriceAndTax {
         return BigDecimal.valueOf(price).setScale(precision, roundingMode)
     }
 
-    public static void main(String[] args) {
+
+    static void roundTest(){
 
         Table table = new Table();
         table.addHeader("Price", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
@@ -69,5 +70,17 @@ class PriceAndTax {
         }
         table.toTablePrint()
     }
+
+    public static void main(String[] args) {
+            numberAdditionTest()
+    }
+
+
+    static void numberAdditionTest() {
+        BigDecimal a = 22.95, b = 2.295
+        double sum = a + b
+        println(sum)
+    }
+
 
 }
