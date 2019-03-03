@@ -8,7 +8,7 @@ import java.math.RoundingMode
 
 class DisputedCalculationWithBigDecimal {
 
-    static Map headerDefination = [
+    static Map headerDefinition = [
             UP  : "Unit Price",
             Qty : "Quantity",
             ATPU: "Actual Tax Per Unit",
@@ -38,24 +38,24 @@ class DisputedCalculationWithBigDecimal {
 
     public static  makeCart(def productList,  Double taxRate, Integer scale, RoundingMode roundingMode ){
 
-        headerDefination.each{ header ->
+        headerDefinition.each{ header ->
             println(header.key+" = "+header.value)
         }
 
         println("")
 
         Table table = new Table();
-        table.addHeader(headerDefination.keySet()[0].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
-        table.addHeader(headerDefination.keySet()[1].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
+        table.addHeader(headerDefinition.keySet()[0].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
+        table.addHeader(headerDefinition.keySet()[1].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
 
-        table.addHeader(headerDefination.keySet()[2].toString()+" (UP × taxRate(${taxRate}) / 100)", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
-        table.addHeader(headerDefination.keySet()[3].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
+        table.addHeader(headerDefinition.keySet()[2].toString()+" (UP × taxRate(${taxRate}) / 100)", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
+        table.addHeader(headerDefinition.keySet()[3].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
 
-        table.addHeader(headerDefination.keySet()[4].toString()+" (UP × ${headerDefination.keySet()[1]}) ", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
-        table.addHeader(headerDefination.keySet()[5].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
+        table.addHeader(headerDefinition.keySet()[4].toString()+" (UP × ${headerDefinition.keySet()[1]}) ", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
+        table.addHeader(headerDefinition.keySet()[5].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
 
-        table.addHeader(headerDefination.keySet()[6].toString()+" ((ATP × taxRate(${taxRate})) / 100) ", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
-        table.addHeader(headerDefination.keySet()[7].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
+        table.addHeader(headerDefinition.keySet()[6].toString()+" ((ATP × taxRate(${taxRate})) / 100) ", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
+        table.addHeader(headerDefinition.keySet()[7].toString(), TableConstant.LEFT_ALIGN, TableConstant.BLUE)
 
         table.addHeader("Amount (ATP + ATT)", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
         table.addHeader("Rounded Amount", TableConstant.LEFT_ALIGN, TableConstant.BLUE)
