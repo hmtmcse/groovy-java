@@ -13,7 +13,35 @@ class PrecisionError {
             [price: 22.95, quantity: 1],
     ]
 
+    static enterWithTax(Double price, Double taxRate) {
+        Double temp = TMMath.start(price).multiply(taxRate).toDouble()
+        Double divide = TMMath.start(taxRate).add(100).toDouble()
+        Double result = TMMath.start(temp).divide(divide, RoundingMode.HALF_UP, 10).toDouble()
+        Double actualPrice = TMMath.start(price).subtract(result).toDouble()
+
+
+        Double actualPriceRound = TMMath.start(actualPrice).mathRound(2).toDouble()
+        Double actualPriceRoundHalfEven = TMMath.start(actualPrice).round(2, RoundingMode.HALF_EVEN).toDouble()
+        Double resultRound = TMMath.start(result).mathRound(2).toDouble()
+        Double resultRoundEven = TMMath.start(result).round(2, RoundingMode.HALF_EVEN).toDouble()
+
+        System.out.println(price + " " + actualPrice + " (" + actualPriceRound + " / " + actualPriceRoundHalfEven + ") " + result + " (" + resultRound + " / " + resultRoundEven + ")")
+
+    }
+
     public static void main(String[] args) {
+
+        double input = 32.1;
+        System.out.println("double : " + input);
+        System.out.println("double : " + String.format("%.2f", input));
+
+        enterWithTax(2.50, 10)
+        enterWithTax(1.15, 10)
+        enterWithTax(27.55, 10)
+        enterWithTax(1.07, 10)
+        System.exit(0)
+
+
         [
                 [
                         [price: 1.15, quantity: 1],
